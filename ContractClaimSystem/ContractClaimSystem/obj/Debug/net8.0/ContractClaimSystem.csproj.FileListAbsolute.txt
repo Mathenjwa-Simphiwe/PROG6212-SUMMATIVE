@@ -1,0 +1,10 @@
+C:\Users\lab_services_student\Documents\GitHub\PROG6212-SUMMATIVE\ContractClaimSystem\ContractClaimSystem\obj\Debug\net8.0\ContractClaimSystem.csproj.AssemblyReference.cache
+C:\Users\lab_services_student\Documents\GitHub\PROG6212-SUMMATIVE\ContractClaimSystem\ContractClaimSystem\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Users\lab_services_student\Documents\GitHub\PROG6212-SUMMATIVE\ContractClaimSystem\ContractClaimSystem\obj\Debug\net8.0\ContractClaimSystem.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lab_services_student\Documents\GitHub\PROG6212-SUMMATIVE\ContractClaimSystem\ContractClaimSystem\obj\Debug\net8.0\ContractClaimSystem.AssemblyInfoInputs.cache
+C:\Users\lab_services_student\Documents\GitHub\PROG6212-SUMMATIVE\ContractClaimSystem\ContractClaimSystem\obj\Debug\net8.0\ContractClaimSystem.AssemblyInfo.cs
+C:\Users\lab_services_student\Documents\GitHub\PROG6212-SUMMATIVE\ContractClaimSystem\ContractClaimSystem\obj\Debug\net8.0\ContractClaimSystem.csproj.CoreCompileInputs.cache
+C:\Users\lab_services_student\Documents\GitHub\PROG6212-SUMMATIVE\ContractClaimSystem\ContractClaimSystem\obj\Debug\net8.0\ContractClaimSystem.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\lab_services_student\Documents\GitHub\PROG6212-SUMMATIVE\ContractClaimSystem\ContractClaimSystem\obj\Debug\net8.0\ContractClaimSystem.RazorAssemblyInfo.cache
+C:\Users\lab_services_student\Documents\GitHub\PROG6212-SUMMATIVE\ContractClaimSystem\ContractClaimSystem\obj\Debug\net8.0\ContractClaimSystem.RazorAssemblyInfo.cs
+C:\Users\lab_services_student\Documents\GitHub\PROG6212-SUMMATIVE\ContractClaimSystem\ContractClaimSystem\obj\Debug\net8.0\ContractClaimSystem.sourcelink.json

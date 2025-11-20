@@ -1,0 +1,93 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="row">
+    <div class="col-12">
+        <h2>Welcome, @ViewBag.UserName!</h2>
+        <p class="lead">Role: <span class="badge bg-primary">@ViewBag.UserRole</span></p>
+        <hr>
+    </div>
+</div>
+
+<div class="row">
+    @if (ViewBag.UserRole == "Lecturer")
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Submit Claim</h5>
+                    <p class="card-text">Submit a new monthly claim</p>
+                    <a href="@Url.Action("SubmitClaim", "Claims")" class="btn btn-primary">Submit Claim</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">My Claims</h5>
+                    <p class="card-text">View your submitted claims</p>
+                    <a href="@Url.Action("MyClaims", "Claims")" class="btn btn-info">View Claims</a>
+                </div>
+            </div>
+        </div>
+    }
+
+    @if (ViewBag.UserRole == "Coordinator")
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Pending Claims</h5>
+                    <p class="card-text">Review and approve pending claims</p>
+                    <a href="@Url.Action("PendingClaims", "Claims")" class="btn btn-warning">Review Claims</a>
+                </div>
+            </div>
+        </div>
+    }
+
+    @if (ViewBag.UserRole == "Manager")
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Final Approval</h5>
+                    <p class="card-text">Final approval of claims</p>
+                    <a href="@Url.Action("ManagerApproval", "Claims")" class="btn btn-success">Final Approval</a>
+                </div>
+            </div>
+        </div>
+    }
+
+    @if (ViewBag.UserRole == "HR")
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">User Management</h5>
+                    <p class="card-text">Manage all users</p>
+                    <a href="@Url.Action("Index", "HR")" class="btn btn-primary">Manage Users</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Reports</h5>
+                    <p class="card-text">Generate reports and invoices</p>
+                    <a href="@Url.Action("GenerateReport", "HR")" class="btn btn-info">Generate Reports</a>
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="col-md-4 mb-4">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">Profile</h5>
+                <p class="card-text">View your profile</p>
+                <a href="#" class="btn btn-secondary">View Profile</a>
+            </div>
+        </div>
+    </div>
+</div>

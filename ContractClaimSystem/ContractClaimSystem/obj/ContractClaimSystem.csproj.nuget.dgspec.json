@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lab_services_student\\source\\repos\\ContractClaimSystem\\ContractClaimSystem\\ContractClaimSystem.csproj": {}
+    "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\ContractClaimSystem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lab_services_student\\source\\repos\\ContractClaimSystem\\ContractClaimSystem\\ContractClaimSystem.csproj": {
+    "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\ContractClaimSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lab_services_student\\source\\repos\\ContractClaimSystem\\ContractClaimSystem\\ContractClaimSystem.csproj",
+        "projectUniqueName": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\ContractClaimSystem.csproj",
         "projectName": "ContractClaimSystem",
-        "projectPath": "C:\\Users\\lab_services_student\\source\\repos\\ContractClaimSystem\\ContractClaimSystem\\ContractClaimSystem.csproj",
+        "projectPath": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\ContractClaimSystem.csproj",
         "packagesPath": "C:\\Users\\lab_services_student\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lab_services_student\\source\\repos\\ContractClaimSystem\\ContractClaimSystem\\obj\\",
+        "outputPath": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -49,6 +49,32 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

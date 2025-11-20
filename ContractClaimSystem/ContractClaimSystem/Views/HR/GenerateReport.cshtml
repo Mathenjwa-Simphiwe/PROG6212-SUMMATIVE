@@ -1,0 +1,179 @@
+﻿@model List<Claim>
+
+@{
+    ViewData["Title"] = "Generate Reports";
+}
+
+<h2>Generate Reports</h2>
+<hr>
+
+<div class="row mb-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-info text-white">
+                <h5 class="mb-0">Report Options</h5>
+            </div>
+            <div class="card-body">
+                <form method="get" action="@Url.Action("GenerateReport", "HR")">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="month" class="form-label">Month</label>
+                                <select name="month" id="month" class="form-control">
+                                    <option value="">All Months</option>
+                                    @for (int i = 1; i <= 12; i++)
+                                    {
+                                        <option value="@i">@System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(i)</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="year" class="form-label">Year</label>
+                                <input type="number" name="year" id="year" class="form-control" value="@DateTime.Now.Year" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="status" class="form-label">Status</label>
+                        <select name="status" id="status" class="form-control">
+                            <option value="">All Statuses</option>
+                            <option value="Approved">Approved</option>
+                            <option value="Pending">Pending</option>
+                            <option value="Rejected">Rejected</option>
+                            <option value="ApprovedByCoordinator">Approved by Coordinator</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-filter"></i> Filter Reports
+                    </button>
+                    <a href="@Url.Action("GenerateReport", "HR")" class="btn btn-secondary">Clear Filters</a>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-success text-white">
+                <h5 class="mb-0">Quick Actions</h5>
+            </div>
+            <div class="card-body">
+                <div class="d-grid gap-2">
+                    <button class="btn btn-outline-primary" onclick="generatePDF()">
+                        <i class="fas fa-file-pdf"></i> Generate PDF Report
+                    </button>
+                    <button class="btn btn-outline-success" onclick="exportToExcel()">
+                        <i class="fas fa-file-excel"></i> Export to Excel
+                    </button>
+                    <a href="@Url.Action("Index", "HR")" class="btn btn-outline-secondary">
+                        <i class="fas fa-users"></i> Back to User Management
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (Model.Any())
+{
+    <div class="card">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Approved Claims Report</h5>
+            <span class="badge bg-light text-dark">@Model.Count claims found</span>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped table-hover" id="reportTable">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Claim ID</th>
+                            <th>Lecturer</th>
+                            <th>Period</th>
+                            <th>Hours</th>
+                            <th>Hourly Rate</th>
+                            <th>Total Amount</th>
+                            <th>Status</th>
+                            <th>Submitted Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var claim in Model)
+                        {
+                            <tr>
+                                <td>@claim.ClaimId</td>
+                                <td>@claim.Lecturer?.FirstName @claim.Lecturer?.LastName</td>
+                                <td>@System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(claim.Month) @claim.Year</td>
+                                <td>@claim.HoursWorked</td>
+                                <td>@claim.HourlyRate.ToString("C")</td>
+                                <td><strong>@claim.TotalAmount.ToString("C")</strong></td>
+                                <td>
+                                    <span class="badge @GetStatusBadgeClass(claim.Status)">
+                                        @GetStatusDisplayText(claim.Status)
+                                    </span>
+                                </td>
+                                <td>@claim.SubmittedDate.ToString("dd MMM yyyy")</td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot class="table-secondary">
+                        <tr>
+                            <td colspan="5" class="text-end"><strong>Total:</strong></td>
+                            <td><strong>@Model.Sum(c => c.TotalAmount).ToString("C")</strong></td>
+                            <td colspan="2"></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="alert alert-warning">
+        <h4>No Claims Found</h4>
+        <p>No claims match the current filter criteria.</p>
+    </div>
+}
+
+@section Scripts {
+    <script>
+        function generatePDF() {
+            alert('PDF generation would be implemented here. In a real application, this would generate a PDF download.');
+            // In a real application, you would call an API endpoint to generate PDF
+            // window.open('@Url.Action("GeneratePdf", "HR")', '_blank');
+        }
+
+        function exportToExcel() {
+            alert('Excel export would be implemented here. In a real application, this would export to Excel.');
+            // In a real application, you would call an API endpoint to export Excel
+            // window.open('@Url.Action("ExportExcel", "HR")', '_blank');
+        }
+    </script>
+}
+
+@functions {
+    public string GetStatusBadgeClass(string status)
+    {
+        return status switch
+        {
+            "Pending" => "bg-warning",
+            "ApprovedByCoordinator" => "bg-info",
+            "Approved" => "bg-success",
+            "Rejected" => "bg-danger",
+            _ => "bg-secondary"
+        };
+    }
+
+    public string GetStatusDisplayText(string status)
+    {
+        return status switch
+        {
+            "Pending" => "Pending Review",
+            "ApprovedByCoordinator" => "Approved by Coordinator",
+            "Approved" => "Approved",
+            "Rejected" => "Rejected",
+            _ => status
+        };
+    }
+}

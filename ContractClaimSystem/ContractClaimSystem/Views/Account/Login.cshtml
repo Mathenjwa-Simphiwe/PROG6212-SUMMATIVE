@@ -1,0 +1,55 @@
+﻿@model LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">Login to Contract Monthly Claim System</h4>
+            </div>
+            <div class="card-body">
+                @if (TempData["ErrorMessage"] != null)
+                {
+                    <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+                }
+
+                <form asp-action="Login" method="post">
+                    @Html.AntiForgeryToken()
+
+                    <div class="mb-3">
+                        <label asp-for="Email" class="form-label">Email Address</label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Password" class="form-label">Password</label>
+                        <input asp-for="Password" type="password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary w-100">Login</button>
+                    </div>
+                </form>
+
+                <div class="mt-4">
+                    <h6>Demo Accounts:</h6>
+                    <div class="small">
+                        <strong>Lecturer:</strong> lecturer@emeris.co.za / password123<br>
+                        <strong>Coordinator:</strong> coordinator@emeris.co.za / password123<br>
+                        <strong>Manager:</strong> manager@emeris.co.za / password123<br>
+                        <strong>HR:</strong> hr@emeris.co.za / password123
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

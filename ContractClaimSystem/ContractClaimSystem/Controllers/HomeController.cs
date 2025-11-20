@@ -1,32 +1,32 @@
 using System.Diagnostics;
+using ContractClaimSystem.Data;
+using ContractClaimSystem.Filters;
 using ContractClaimSystem.Models;
+using ContractClaimSystem.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ContractClaimSystem.Controllers
 {
+    // Controllers/HomeController.cs
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext _context;
+        private readonly SessionService _sessionService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ApplicationDbContext context, SessionService sessionService)
         {
-            _logger = logger;
+            _context = context;
+            _sessionService = sessionService;
         }
 
-        public IActionResult Index()
+        [AuthorizeRole("Lecturer", "Coordinator", "Manager", "HR")]
+        public IActionResult Dashboard()
         {
+            var userRole = _sessionService.GetUserRole();
+            ViewBag.UserRole = userRole;
+            ViewBag.UserName = _sessionService.GetUserName();
+
             return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }
