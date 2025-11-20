@@ -1,0 +1,139 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\lab_services_student\\source\\repos\\ContractClaimSystem\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|c:\\users\\lab_services_student\\source\\repos\\contractclaimsystem\\contractclaimsystem\\filters\\authorizeroleattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|solutionrelative:contractclaimsystem\\filters\\authorizeroleattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|c:\\users\\lab_services_student\\source\\repos\\contractclaimsystem\\contractclaimsystem\\contractclaimsystem.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|solutionrelative:contractclaimsystem\\contractclaimsystem.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|c:\\users\\lab_services_student\\source\\repos\\contractclaimsystem\\contractclaimsystem\\services\\sessionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|solutionrelative:contractclaimsystem\\services\\sessionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|c:\\users\\lab_services_student\\source\\repos\\contractclaimsystem\\contractclaimsystem\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|solutionrelative:contractclaimsystem\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|c:\\users\\lab_services_student\\source\\repos\\contractclaimsystem\\contractclaimsystem\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|solutionrelative:contractclaimsystem\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|c:\\users\\lab_services_student\\source\\repos\\contractclaimsystem\\contractclaimsystem\\models\\claim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|solutionrelative:contractclaimsystem\\models\\claim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|c:\\users\\lab_services_student\\source\\repos\\contractclaimsystem\\contractclaimsystem\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|solutionrelative:contractclaimsystem\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthorizeRoleAttribute.cs",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\ContractClaimSystem\\ContractClaimSystem\\Filters\\AuthorizeRoleAttribute.cs",
+              "RelativeDocumentMoniker": "ContractClaimSystem\\Filters\\AuthorizeRoleAttribute.cs",
+              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\ContractClaimSystem\\ContractClaimSystem\\Filters\\AuthorizeRoleAttribute.cs",
+              "RelativeToolTip": "ContractClaimSystem\\Filters\\AuthorizeRoleAttribute.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T18:50:22.912Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SessionService.cs",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\ContractClaimSystem\\ContractClaimSystem\\Services\\SessionService.cs",
+              "RelativeDocumentMoniker": "ContractClaimSystem\\Services\\SessionService.cs",
+              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\ContractClaimSystem\\ContractClaimSystem\\Services\\SessionService.cs",
+              "RelativeToolTip": "ContractClaimSystem\\Services\\SessionService.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwCkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T18:49:02.215Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\ContractClaimSystem\\ContractClaimSystem\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "ContractClaimSystem\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\ContractClaimSystem\\ContractClaimSystem\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "ContractClaimSystem\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T18:47:38.824Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ContractClaimSystem",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\ContractClaimSystem\\ContractClaimSystem\\ContractClaimSystem.csproj",
+              "RelativeDocumentMoniker": "ContractClaimSystem\\ContractClaimSystem.csproj",
+              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\ContractClaimSystem\\ContractClaimSystem\\ContractClaimSystem.csproj",
+              "RelativeToolTip": "ContractClaimSystem\\ContractClaimSystem.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-11-20T18:47:12.787Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "LoginViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\ContractClaimSystem\\ContractClaimSystem\\Models\\LoginViewModel.cs",
+              "RelativeDocumentMoniker": "ContractClaimSystem\\Models\\LoginViewModel.cs",
+              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\ContractClaimSystem\\ContractClaimSystem\\Models\\LoginViewModel.cs",
+              "RelativeToolTip": "ContractClaimSystem\\Models\\LoginViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T18:46:18.087Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Claim.cs",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\ContractClaimSystem\\ContractClaimSystem\\Models\\Claim.cs",
+              "RelativeDocumentMoniker": "ContractClaimSystem\\Models\\Claim.cs",
+              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\ContractClaimSystem\\ContractClaimSystem\\Models\\Claim.cs",
+              "RelativeToolTip": "ContractClaimSystem\\Models\\Claim.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T18:45:36.236Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\source\\repos\\ContractClaimSystem\\ContractClaimSystem\\Models\\User.cs",
+              "RelativeDocumentMoniker": "ContractClaimSystem\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\lab_services_student\\source\\repos\\ContractClaimSystem\\ContractClaimSystem\\Models\\User.cs",
+              "RelativeToolTip": "ContractClaimSystem\\Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T18:44:08.972Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
