@@ -3,38 +3,41 @@ using ContractClaimSystem.Filters;
 using ContractClaimSystem.Models;
 using ContractClaimSystem.Services;
 using Microsoft.AspNetCore.Mvc;
-
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 
 namespace ContractClaimSystem.Controllers
 {
-  
     public class ClaimsController : Controller
     {
-        private readonly ApplicationDbContext _context;
-        private readonly SessionService _sessionService;
-        private readonly IWebHostEnvironment _environment;
         private readonly IDatabaseService _databaseService;
+        private readonly SessionService _sessionService;
 
-        public ClaimsController(ApplicationDbContext context, SessionService sessionService, IWebHostEnvironment environment, IDatabaseService databaseService)
+        public ClaimsController(IDatabaseService databaseService, SessionService sessionService)
         {
-            _context = context;
-            _sessionService = sessionService;
-            _environment = environment;
             _databaseService = databaseService;
+            _sessionService = sessionService;
         }
 
         // GET: Submit Claim Form
         [AuthorizeRole("Lecturer")]
         [HttpGet]
-        public IActionResult SubmitClaim()
+        public async Task<IActionResult> SubmitClaim()
         {
-            var lecturer = _context.Users.Find(_sessionService.GetUserId());
+            var lecturer = await _databaseService.GetUserAsync(_sessionService.GetUserId());
             ViewBag.HourlyRate = lecturer?.HourlyRate ?? 0;
-            ViewBag.MaxHours = 180; // Maximum hours allowed
-            return View(new Claim { Month = DateTime.Now.Month, Year = DateTime.Now.Year });
+            ViewBag.MaxHours = 180;
+
+            // Initialize with default values
+            var claim = new Claim
+            {
+                Month = DateTime.Now.Month,
+                Year = DateTime.Now.Year,
+                FileName = "",
+                ContentType = "",
+                FileContent = new byte[0]
+            };
+
+            return View(claim);
         }
 
         // POST: Submit Claim
@@ -43,6 +46,28 @@ namespace ContractClaimSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> SubmitClaim(Claim claim, IFormFile supportingDocument)
         {
+            Console.WriteLine($"=== SUBMIT CLAIM STARTED ===");
+            Console.WriteLine($"ModelState.IsValid: {ModelState.IsValid}");
+
+            var userId = _sessionService.GetUserId();
+            var userName = _sessionService.GetUserName();
+            var userRole = _sessionService.GetUserRole();
+
+            Console.WriteLine($"Session - UserId: {userId}, UserName: {userName}, Role: {userRole}");
+            Console.WriteLine($"Claim data - Month: {claim.Month}, Year: {claim.Year}, Hours: {claim.HoursWorked}");
+
+            // Remove errors for system-populated fields
+            ModelState.Remove("FileName");
+            ModelState.Remove("Lecturer");
+            ModelState.Remove("ContentType");
+            ModelState.Remove("FileContent");
+            ModelState.Remove("HourlyRate");
+            ModelState.Remove("TotalAmount");
+            ModelState.Remove("Status");
+            ModelState.Remove("SubmittedDate");
+
+            Console.WriteLine($"ModelState.IsValid after removing system fields: {ModelState.IsValid}");
+
             try
             {
                 // Server-side validation
@@ -56,144 +81,92 @@ namespace ContractClaimSystem.Controllers
                     ModelState.AddModelError("HoursWorked", "Hours worked must be greater than 0.");
                 }
 
+                // Log all ModelState errors
+                foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    Console.WriteLine($"ModelState Error: {error.ErrorMessage}");
+                }
+
                 if (ModelState.IsValid)
                 {
-                    var lecturer = await _context.Users.FindAsync(_sessionService.GetUserId());
-                    if (lecturer == null)
+                    Console.WriteLine("ModelState is valid - calling SubmitClaimAsync...");
+
+                    var success = await _databaseService.SubmitClaimAsync(
+                        claim,
+                        supportingDocument,
+                        userId,
+                        userName
+                    );
+
+                    Console.WriteLine($"SubmitClaimAsync result: {success}");
+
+                    if (success)
                     {
-                        TempData["ErrorMessage"] = "Lecturer not found.";
-                        return RedirectToAction("SubmitClaim");
+                        TempData["SuccessMessage"] = "Claim submitted successfully!";
+                        return RedirectToAction("MyClaims");
                     }
-
-                    // Create new claim object to avoid model binding issues
-                    var newClaim = new Claim
+                    else
                     {
-                        LecturerId = _sessionService.GetUserId(),
-                        Month = claim.Month,
-                        Year = claim.Year,
-                        HoursWorked = claim.HoursWorked,
-                        HourlyRate = lecturer.HourlyRate,
-                        TotalAmount = claim.HoursWorked * lecturer.HourlyRate,
-                        Notes = claim.Notes,
-                        Status = "Pending",
-                        SubmittedDate = DateTime.Now
-                    };
-
-                    // Handle file upload
-                    if (supportingDocument != null && supportingDocument.Length > 0)
-                    {
-                        await HandleFileUpload(newClaim, supportingDocument);
+                        TempData["ErrorMessage"] = "Failed to submit claim. Please try again.";
+                        Console.WriteLine("SubmitClaimAsync returned false");
                     }
-
-                    _context.Claims.Add(newClaim);
-
-                    // Add initial status history
-                    newClaim.StatusHistory.Add(new ClaimStatusHistory
-                    {
-                        Status = "Pending",
-                        ActionBy = _sessionService.GetUserName(),
-                        Notes = "Claim submitted",
-                        ActionDate = DateTime.Now
-                    });
-
-                    await _context.SaveChangesAsync();
-
-                    TempData["SuccessMessage"] = "Claim submitted successfully!";
-                    return RedirectToAction("MyClaims");
+                }
+                else
+                {
+                    Console.WriteLine("ModelState is invalid - returning to view with errors");
+                    TempData["ErrorMessage"] = "Please fix the validation errors below.";
                 }
 
                 // If we get here, there were validation errors
-                var currentLecturer = await _context.Users.FindAsync(_sessionService.GetUserId());
+                var currentLecturer = await _databaseService.GetUserAsync(userId);
                 ViewBag.HourlyRate = currentLecturer?.HourlyRate ?? 0;
                 ViewBag.MaxHours = 180;
                 return View(claim);
             }
             catch (Exception ex)
             {
-                // Log the error
-                Console.WriteLine($"Error submitting claim: {ex.Message}");
-                TempData["ErrorMessage"] = "An error occurred while submitting your claim. Please try again.";
+                Console.WriteLine($"ERROR in SubmitClaim: {ex.Message}");
+                Console.WriteLine($"Stack trace: {ex.StackTrace}");
+                TempData["ErrorMessage"] = $"An error occurred while submitting your claim: {ex.Message}";
 
-                var currentLecturer = await _context.Users.FindAsync(_sessionService.GetUserId());
+                var currentLecturer = await _databaseService.GetUserAsync(userId);
                 ViewBag.HourlyRate = currentLecturer?.HourlyRate ?? 0;
                 ViewBag.MaxHours = 180;
                 return View(claim);
             }
         }
 
-        private async Task HandleFileUpload(Claim claim, IFormFile file)
+        // Download supporting document
+        [AuthorizeRole("Lecturer", "Coordinator", "Manager", "HR")]
+        public async Task<IActionResult> DownloadDocument(int id)
         {
-            // Validate file size (5MB limit)
-            if (file.Length > 5 * 1024 * 1024)
-            {
-                throw new Exception("File size must be less than 5MB.");
-            }
+            var fileResult = await _databaseService.DownloadDocumentAsync(
+                id,
+                _sessionService.GetUserId(),
+                _sessionService.GetUserRole()
+            );
 
-            // Validate file type
-            var allowedExtensions = new[] { ".pdf", ".docx", ".xlsx", ".jpg", ".png" };
-            var extension = Path.GetExtension(file.FileName).ToLower();
-            if (!allowedExtensions.Contains(extension))
-            {
-                throw new Exception("Only PDF, DOCX, XLSX, JPG, and PNG files are allowed.");
-            }
-
-            // Store file in database
-            using (var memoryStream = new MemoryStream())
-            {
-                await file.CopyToAsync(memoryStream);
-                claim.FileName = file.FileName;
-                claim.FileContent = memoryStream.ToArray();
-                claim.ContentType = file.ContentType;
-            }
-
-        }
-
-            // Download supporting document
-            [AuthorizeRole("Lecturer", "Coordinator", "Manager", "HR")]
-        public IActionResult DownloadDocument(int id)
-        {
-            var claim = _context.Claims.Find(id);
-            if (claim?.FileContent == null)
+            if (fileResult == null)
             {
                 return NotFound();
             }
 
-            // Check authorization
-            var userRole = _sessionService.GetUserRole();
-            var userId = _sessionService.GetUserId();
-
-            if (userRole == "Lecturer" && claim.LecturerId != userId)
-            {
-                return Forbid();
-            }
-
-            return File(claim.FileContent, claim.ContentType ?? "application/octet-stream", claim.FileName);
+            return File(fileResult.FileContent, fileResult.ContentType ?? "application/octet-stream", fileResult.FileName);
         }
 
         // View Claims with Status Tracking
         [AuthorizeRole("Lecturer")]
-        public IActionResult MyClaims()
+        public async Task<IActionResult> MyClaims()
         {
-            var claims = _context.Claims
-                .Include(c => c.StatusHistory)
-                .Where(c => c.LecturerId == _sessionService.GetUserId())
-                .OrderByDescending(c => c.SubmittedDate)
-                .ToList();
-
+            var claims = await _databaseService.GetUserClaimsAsync(_sessionService.GetUserId());
             return View(claims);
         }
 
         // Coordinator: View Pending Claims
         [AuthorizeRole("Coordinator")]
-        public IActionResult PendingClaims()
+        public async Task<IActionResult> PendingClaims()
         {
-            var claims = _context.Claims
-                .Include(c => c.Lecturer)
-                .Include(c => c.StatusHistory)
-                .Where(c => c.Status == "Pending")
-                .OrderBy(c => c.SubmittedDate)
-                .ToList();
-
+            var claims = await _databaseService.GetPendingClaimsAsync();
             return View(claims);
         }
 
@@ -201,33 +174,24 @@ namespace ContractClaimSystem.Controllers
         [AuthorizeRole("Coordinator")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult ApproveClaim(int id, string notes = "")
+        public async Task<IActionResult> ApproveClaim(int id, string notes = "")
         {
             try
             {
-                var claim = _context.Claims
-                    .Include(c => c.StatusHistory)
-                    .FirstOrDefault(c => c.ClaimId == id);
+                var success = await _databaseService.ApproveClaimAsync(
+                    id,
+                    _sessionService.GetUserName(),
+                    notes
+                );
 
-                if (claim == null)
+                if (success)
                 {
-                    return NotFound();
+                    TempData["SuccessMessage"] = "Claim approved successfully!";
                 }
-
-                claim.Status = "ApprovedByCoordinator";
-                claim.CoordinatorApprovedDate = DateTime.Now;
-
-                claim.StatusHistory.Add(new ClaimStatusHistory
+                else
                 {
-                    Status = "ApprovedByCoordinator",
-                    ActionBy = _sessionService.GetUserName(),
-                    Notes = notes ?? "Approved by Coordinator",
-                    ActionDate = DateTime.Now
-                });
-
-                _context.SaveChanges();
-
-                TempData["SuccessMessage"] = "Claim approved successfully!";
+                    TempData["ErrorMessage"] = "Failed to approve claim. Please try again.";
+                }
             }
             catch (Exception ex)
             {
@@ -241,38 +205,30 @@ namespace ContractClaimSystem.Controllers
         [AuthorizeRole("Coordinator")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult RejectClaim(int id, string notes)
+        public async Task<IActionResult> RejectClaim(int id, string notes)
         {
             try
             {
-                var claim = _context.Claims
-                    .Include(c => c.StatusHistory)
-                    .FirstOrDefault(c => c.ClaimId == id);
-
-                if (claim == null)
-                {
-                    return NotFound();
-                }
-
                 if (string.IsNullOrEmpty(notes))
                 {
                     TempData["ErrorMessage"] = "Rejection notes are required.";
                     return RedirectToAction("PendingClaims");
                 }
 
-                claim.Status = "Rejected";
+                var success = await _databaseService.RejectClaimAsync(
+                    id,
+                    _sessionService.GetUserName(),
+                    notes
+                );
 
-                claim.StatusHistory.Add(new ClaimStatusHistory
+                if (success)
                 {
-                    Status = "Rejected",
-                    ActionBy = _sessionService.GetUserName(),
-                    Notes = notes,
-                    ActionDate = DateTime.Now
-                });
-
-                _context.SaveChanges();
-
-                TempData["SuccessMessage"] = "Claim rejected successfully!";
+                    TempData["SuccessMessage"] = "Claim rejected successfully!";
+                }
+                else
+                {
+                    TempData["ErrorMessage"] = "Failed to reject claim. Please try again.";
+                }
             }
             catch (Exception ex)
             {
@@ -284,15 +240,9 @@ namespace ContractClaimSystem.Controllers
 
         // Manager: View Claims for Final Approval
         [AuthorizeRole("Manager")]
-        public IActionResult ManagerApproval()
+        public async Task<IActionResult> ManagerApproval()
         {
-            var claims = _context.Claims
-                .Include(c => c.Lecturer)
-                .Include(c => c.StatusHistory)
-                .Where(c => c.Status == "ApprovedByCoordinator")
-                .OrderBy(c => c.CoordinatorApprovedDate)
-                .ToList();
-
+            var claims = await _databaseService.GetClaimsForManagerApprovalAsync();
             return View(claims);
         }
 
@@ -300,33 +250,24 @@ namespace ContractClaimSystem.Controllers
         [AuthorizeRole("Manager")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult FinalApproveClaim(int id, string notes = "")
+        public async Task<IActionResult> FinalApproveClaim(int id, string notes = "")
         {
             try
             {
-                var claim = _context.Claims
-                    .Include(c => c.StatusHistory)
-                    .FirstOrDefault(c => c.ClaimId == id);
+                var success = await _databaseService.FinalApproveClaimAsync(
+                    id,
+                    _sessionService.GetUserName(),
+                    notes
+                );
 
-                if (claim == null)
+                if (success)
                 {
-                    return NotFound();
+                    TempData["SuccessMessage"] = "Claim approved successfully!";
                 }
-
-                claim.Status = "Approved";
-                claim.ManagerApprovedDate = DateTime.Now;
-
-                claim.StatusHistory.Add(new ClaimStatusHistory
+                else
                 {
-                    Status = "Approved",
-                    ActionBy = _sessionService.GetUserName(),
-                    Notes = notes ?? "Approved by Academic Manager",
-                    ActionDate = DateTime.Now
-                });
-
-                _context.SaveChanges();
-
-                TempData["SuccessMessage"] = "Claim approved successfully!";
+                    TempData["ErrorMessage"] = "Failed to approve claim. Please try again.";
+                }
             }
             catch (Exception ex)
             {
@@ -340,38 +281,30 @@ namespace ContractClaimSystem.Controllers
         [AuthorizeRole("Manager")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult FinalRejectClaim(int id, string notes)
+        public async Task<IActionResult> FinalRejectClaim(int id, string notes)
         {
             try
             {
-                var claim = _context.Claims
-                    .Include(c => c.StatusHistory)
-                    .FirstOrDefault(c => c.ClaimId == id);
-
-                if (claim == null)
-                {
-                    return NotFound();
-                }
-
                 if (string.IsNullOrEmpty(notes))
                 {
                     TempData["ErrorMessage"] = "Rejection notes are required.";
                     return RedirectToAction("ManagerApproval");
                 }
 
-                claim.Status = "Rejected";
+                var success = await _databaseService.FinalRejectClaimAsync(
+                    id,
+                    _sessionService.GetUserName(),
+                    notes
+                );
 
-                claim.StatusHistory.Add(new ClaimStatusHistory
+                if (success)
                 {
-                    Status = "Rejected",
-                    ActionBy = _sessionService.GetUserName(),
-                    Notes = notes,
-                    ActionDate = DateTime.Now
-                });
-
-                _context.SaveChanges();
-
-                TempData["SuccessMessage"] = "Claim rejected successfully!";
+                    TempData["SuccessMessage"] = "Claim rejected successfully!";
+                }
+                else
+                {
+                    TempData["ErrorMessage"] = "Failed to reject claim. Please try again.";
+                }
             }
             catch (Exception ex)
             {
@@ -383,25 +316,17 @@ namespace ContractClaimSystem.Controllers
 
         // Claim Details with Status History
         [AuthorizeRole("Lecturer", "Coordinator", "Manager", "HR")]
-        public IActionResult ClaimDetails(int id)
+        public async Task<IActionResult> ClaimDetails(int id)
         {
-            var claim = _context.Claims
-                .Include(c => c.Lecturer)
-                .Include(c => c.StatusHistory)
-                .FirstOrDefault(c => c.ClaimId == id);
+            var claim = await _databaseService.GetClaimDetailsAsync(
+                id,
+                _sessionService.GetUserId(),
+                _sessionService.GetUserRole()
+            );
 
             if (claim == null)
             {
                 return NotFound();
-            }
-
-            // Authorization check
-            var userRole = _sessionService.GetUserRole();
-            var userId = _sessionService.GetUserId();
-
-            if (userRole == "Lecturer" && claim.LecturerId != userId)
-            {
-                return Forbid();
             }
 
             return View(claim);

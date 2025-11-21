@@ -48,12 +48,17 @@ namespace ContractClaimSystem.Services
             // Check if SQL Server is available
             try
             {
+                // Test SQL Server connection
                 _useSqlServer = _sqlContext.Database.CanConnect();
+                Console.WriteLine($"SQL Server available: {_useSqlServer}");
             }
-            catch
+            catch (Exception ex)
             {
+                Console.WriteLine($"SQL Server not available: {ex.Message}");
                 _useSqlServer = false;
             }
+
+            Console.WriteLine($"Using database: {(_useSqlServer ? "SQL Server" : "In-Memory")}");
         }
 
         public async Task<bool> SubmitClaimAsync(Claim claim, IFormFile supportingDocument, int lecturerId, string lecturerName)
@@ -81,7 +86,11 @@ namespace ContractClaimSystem.Services
             try
             {
                 var lecturer = await _sqlContext.Users.FindAsync(lecturerId);
-                if (lecturer == null) return false;
+                if (lecturer == null)
+                {
+                    Console.WriteLine($"Lecturer with ID {lecturerId} not found in SQL database");
+                    return false;
+                }
 
                 var newClaim = new Claim
                 {
@@ -91,17 +100,23 @@ namespace ContractClaimSystem.Services
                     HoursWorked = claim.HoursWorked,
                     HourlyRate = lecturer.HourlyRate,
                     TotalAmount = claim.HoursWorked * lecturer.HourlyRate,
-                    Notes = claim.Notes,
+                    Notes = claim.Notes ?? "",
                     Status = "Pending",
-                    SubmittedDate = DateTime.Now
+                    SubmittedDate = DateTime.Now,
+                    FileName = "",
+                    FileContent = new byte[0],
+                    ContentType = ""
                 };
 
                 if (supportingDocument != null && supportingDocument.Length > 0)
                 {
+                    Console.WriteLine($"Processing file upload: {supportingDocument.FileName}");
                     await HandleFileUpload(newClaim, supportingDocument);
                 }
 
                 _sqlContext.Claims.Add(newClaim);
+
+                // Add status history
                 newClaim.StatusHistory.Add(new ClaimStatusHistory
                 {
                     Status = "Pending",
@@ -110,50 +125,72 @@ namespace ContractClaimSystem.Services
                     ActionDate = DateTime.Now
                 });
 
-                await _sqlContext.SaveChangesAsync();
-                return true;
+                var result = await _sqlContext.SaveChangesAsync();
+                Console.WriteLine($"SQL SaveChanges result: {result} rows affected");
+                return result > 0;
             }
-            catch
+            catch (Exception ex)
             {
-                // Fallback to in-memory if SQL fails
-                return await SubmitClaimToMemoryAsync(claim, supportingDocument, lecturerId, lecturerName);
+                Console.WriteLine($"Error in SubmitClaimToSqlAsync: {ex.Message}");
+                Console.WriteLine($"Stack trace: {ex.StackTrace}");
+                return false;
             }
         }
 
         private async Task<bool> SubmitClaimToMemoryAsync(Claim claim, IFormFile supportingDocument, int lecturerId, string lecturerName)
         {
-            var lecturer = await _memoryContext.Users.FindAsync(lecturerId);
-            if (lecturer == null) return false;
-
-            var newClaim = new Claim
+            try
             {
-                LecturerId = lecturerId,
-                Month = claim.Month,
-                Year = claim.Year,
-                HoursWorked = claim.HoursWorked,
-                HourlyRate = lecturer.HourlyRate,
-                TotalAmount = claim.HoursWorked * lecturer.HourlyRate,
-                Notes = claim.Notes,
-                Status = "Pending",
-                SubmittedDate = DateTime.Now
-            };
+                var lecturer = await _memoryContext.Users.FindAsync(lecturerId);
+                if (lecturer == null)
+                {
+                    Console.WriteLine($"Lecturer with ID {lecturerId} not found in In-Memory database");
+                    return false;
+                }
 
-            if (supportingDocument != null && supportingDocument.Length > 0)
-            {
-                await HandleFileUpload(newClaim, supportingDocument);
+                var newClaim = new Claim
+                {
+                    LecturerId = lecturerId,
+                    Month = claim.Month,
+                    Year = claim.Year,
+                    HoursWorked = claim.HoursWorked,
+                    HourlyRate = lecturer.HourlyRate,
+                    TotalAmount = claim.HoursWorked * lecturer.HourlyRate,
+                    Notes = claim.Notes ?? "",
+                    Status = "Pending",
+                    SubmittedDate = DateTime.Now,
+                    FileName = "",
+                    FileContent = new byte[0],
+                    ContentType = ""
+                };
+
+                if (supportingDocument != null && supportingDocument.Length > 0)
+                {
+                    Console.WriteLine($"Processing file upload: {supportingDocument.FileName}");
+                    await HandleFileUpload(newClaim, supportingDocument);
+                }
+
+                _memoryContext.Claims.Add(newClaim);
+
+                // Add status history
+                newClaim.StatusHistory.Add(new ClaimStatusHistory
+                {
+                    Status = "Pending",
+                    ActionBy = lecturerName,
+                    Notes = "Claim submitted",
+                    ActionDate = DateTime.Now
+                });
+
+                var result = await _memoryContext.SaveChangesAsync();
+                Console.WriteLine($"In-Memory SaveChanges result: {result} rows affected");
+                return result > 0;
             }
-
-            _memoryContext.Claims.Add(newClaim);
-            newClaim.StatusHistory.Add(new ClaimStatusHistory
+            catch (Exception ex)
             {
-                Status = "Pending",
-                ActionBy = lecturerName,
-                Notes = "Claim submitted",
-                ActionDate = DateTime.Now
-            });
-
-            await _memoryContext.SaveChangesAsync();
-            return true;
+                Console.WriteLine($"Error in SubmitClaimToMemoryAsync: {ex.Message}");
+                Console.WriteLine($"Stack trace: {ex.StackTrace}");
+                return false;
+            }
         }
 
         public async Task<List<Claim>> GetUserClaimsAsync(int userId)
@@ -838,6 +875,7 @@ namespace ContractClaimSystem.Services
             }
         }
 
+      
         private async Task HandleFileUpload(Claim claim, IFormFile file)
         {
             if (file.Length > 5 * 1024 * 1024)
