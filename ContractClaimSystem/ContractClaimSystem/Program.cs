@@ -33,6 +33,8 @@ namespace ContractClaimSystem
             builder.Services.AddHttpContextAccessor();
             builder.Services.AddScoped<SessionService>();
 
+            builder.Services.AddScoped<IDatabaseService, DatabaseService>();
+
             var app = builder.Build();
 
             // Database initialization

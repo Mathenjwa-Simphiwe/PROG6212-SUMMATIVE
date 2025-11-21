@@ -16,12 +16,14 @@ namespace ContractClaimSystem.Controllers
         private readonly ApplicationDbContext _context;
         private readonly SessionService _sessionService;
         private readonly IWebHostEnvironment _environment;
+        private readonly IDatabaseService _databaseService;
 
-        public ClaimsController(ApplicationDbContext context, SessionService sessionService, IWebHostEnvironment environment)
+        public ClaimsController(ApplicationDbContext context, SessionService sessionService, IWebHostEnvironment environment, IDatabaseService databaseService)
         {
             _context = context;
             _sessionService = sessionService;
             _environment = environment;
+            _databaseService = databaseService;
         }
 
         // GET: Submit Claim Form

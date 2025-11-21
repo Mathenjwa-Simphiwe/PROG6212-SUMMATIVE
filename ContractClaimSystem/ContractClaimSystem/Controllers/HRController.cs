@@ -1,25 +1,25 @@
-﻿using ContractClaimSystem.Data;
-using ContractClaimSystem.Filters;
+﻿using ContractClaimSystem.Filters;
 using ContractClaimSystem.Models;
+using ContractClaimSystem.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using ContractClaimSystem.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ContractClaimSystem.Controllers
 {
-    // Controllers/HRController.cs
     [AuthorizeRole("HR")]
     public class HRController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IDatabaseService _databaseService;
 
-        public HRController(ApplicationDbContext context)
+        public HRController(IDatabaseService databaseService)
         {
-            _context = context;
+            _databaseService = databaseService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var users = _context.Users.ToList();
+            var users = await _databaseService.GetUsersAsync();
             return View(users);
         }
 
@@ -30,71 +30,113 @@ namespace ContractClaimSystem.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateUser(User user)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateUser(User user)
         {
-            if (ModelState.IsValid)
+            try
             {
-                user.CreatedDate = DateTime.Now;
-                _context.Users.Add(user);
-                _context.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    var success = await _databaseService.AddUserAsync(user);
+
+                    if (success)
+                    {
+                        TempData["SuccessMessage"] = $"User {user.FirstName} {user.LastName} created successfully!";
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        TempData["ErrorMessage"] = "Failed to create user. The email may already exist.";
+                    }
+                }
             }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = $"Error creating user: {ex.Message}";
+            }
+
             return View(user);
         }
 
         [HttpGet]
-        public IActionResult EditUser(int id)
+        public async Task<IActionResult> EditUser(int id)
         {
-            var user = _context.Users.Find(id);
-            if (user == null) return NotFound();
+            var user = await _databaseService.GetUserAsync(id);
+            if (user == null)
+            {
+                TempData["ErrorMessage"] = "User not found.";
+                return RedirectToAction("Index");
+            }
+
             return View(user);
         }
 
         [HttpPost]
-        public IActionResult EditUser(User user)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Users.Update(user);
-                _context.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(user);
-        }
-
-        public IActionResult GenerateReport(int? month, int? year, string status)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditUser(User user)
         {
             try
             {
-                // Start with base query
-                var claimsQuery = _context.Claims
-                    .Include(c => c.Lecturer)
-                    .AsQueryable();
+                if (ModelState.IsValid)
+                {
+                    var success = await _databaseService.UpdateUserAsync(user);
 
-                // Apply filters safely
-                if (month.HasValue && month > 0)
-                    claimsQuery = claimsQuery.Where(c => c.Month == month.Value);
+                    if (success)
+                    {
+                        TempData["SuccessMessage"] = $"User {user.FirstName} {user.LastName} updated successfully!";
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        TempData["ErrorMessage"] = "Failed to update user. The user may not exist or the email may already be in use.";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = $"Error updating user: {ex.Message}";
+            }
 
-                if (year.HasValue && year > 0)
-                    claimsQuery = claimsQuery.Where(c => c.Year == year.Value);
+            return View(user);
+        }
 
-                if (!string.IsNullOrEmpty(status))
-                    claimsQuery = claimsQuery.Where(c => c.Status == status);
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteUser(int id)
+        {
+            try
+            {
+                var success = await _databaseService.DeleteUserAsync(id);
 
-                // Execute query and handle null results
-                var claims = claimsQuery
-                    .OrderByDescending(c => c.SubmittedDate)
-                    .ToList() ?? new List<Claim>(); // Ensure we never return null
+                if (success)
+                {
+                    TempData["SuccessMessage"] = "User deleted successfully!";
+                }
+                else
+                {
+                    TempData["ErrorMessage"] = "Failed to delete user. The user may not exist or cannot be deleted.";
+                }
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = $"Error deleting user: {ex.Message}";
+            }
 
+            return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> GenerateReport(int? month, int? year, string status)
+        {
+            try
+            {
+                var claims = await _databaseService.GetClaimsReportAsync(month, year, status);
                 return View(claims);
             }
             catch (Exception ex)
             {
-                // Log the error and return empty list
-                Console.WriteLine($"Error generating report: {ex.Message}");
+                TempData["ErrorMessage"] = $"Error generating report: {ex.Message}";
                 return View(new List<Claim>());
             }
         }
-
     }
 }
