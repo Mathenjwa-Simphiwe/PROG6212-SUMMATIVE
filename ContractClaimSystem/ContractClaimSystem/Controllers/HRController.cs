@@ -62,24 +62,39 @@ namespace ContractClaimSystem.Controllers
             return View(user);
         }
 
-        public IActionResult GenerateReport()
+        public IActionResult GenerateReport(int? month, int? year, string status)
         {
-            var claims = _context.Claims
-                .Include(c => c.Lecturer)
-                .Where(c => c.Status == "Approved")
-                .ToList();
-
-            // Generate PDF report (you would implement PDF generation here)
-            var reportData = claims.Select(c => new
+            try
             {
-                Lecturer = $"{c.Lecturer.FirstName} {c.Lecturer.LastName}",
-                Period = $"{c.Month}/{c.Year}",
-                Hours = c.HoursWorked,
-                Amount = c.TotalAmount
-            }).ToList();
+                // Start with base query
+                var claimsQuery = _context.Claims
+                    .Include(c => c.Lecturer)
+                    .AsQueryable();
 
-            ViewBag.ReportData = reportData;
-            return View();
+                // Apply filters safely
+                if (month.HasValue && month > 0)
+                    claimsQuery = claimsQuery.Where(c => c.Month == month.Value);
+
+                if (year.HasValue && year > 0)
+                    claimsQuery = claimsQuery.Where(c => c.Year == year.Value);
+
+                if (!string.IsNullOrEmpty(status))
+                    claimsQuery = claimsQuery.Where(c => c.Status == status);
+
+                // Execute query and handle null results
+                var claims = claimsQuery
+                    .OrderByDescending(c => c.SubmittedDate)
+                    .ToList() ?? new List<Claim>(); // Ensure we never return null
+
+                return View(claims);
+            }
+            catch (Exception ex)
+            {
+                // Log the error and return empty list
+                Console.WriteLine($"Error generating report: {ex.Message}");
+                return View(new List<Claim>());
+            }
         }
+
     }
 }

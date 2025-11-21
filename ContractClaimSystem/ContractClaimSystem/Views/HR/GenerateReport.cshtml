@@ -1,7 +1,9 @@
-﻿@model List<Claim>
+﻿@model List<Claim>?
 
 @{
     ViewData["Title"] = "Generate Reports";
+    // Ensure Model is never null for the view
+    var claims = Model ?? new List<Claim>();
 }
 
 <h2>Generate Reports</h2>
@@ -75,12 +77,12 @@
     </div>
 </div>
 
-@if (Model.Any())
+@if (claims.Any())
 {
     <div class="card">
         <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
-            <h5 class="mb-0">Approved Claims Report</h5>
-            <span class="badge bg-light text-dark">@Model.Count claims found</span>
+            <h5 class="mb-0">Claims Report</h5>
+            <span class="badge bg-light text-dark">@claims.Count claims found</span>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -98,11 +100,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var claim in Model)
+                        @foreach (var claim in claims)
                         {
                             <tr>
                                 <td>@claim.ClaimId</td>
-                                <td>@claim.Lecturer?.FirstName @claim.Lecturer?.LastName</td>
+                                <td>@(claim.Lecturer?.FirstName ?? "Unknown") @(claim.Lecturer?.LastName ?? "")</td>
                                 <td>@System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(claim.Month) @claim.Year</td>
                                 <td>@claim.HoursWorked</td>
                                 <td>@claim.HourlyRate.ToString("C")</td>
@@ -119,7 +121,7 @@
                     <tfoot class="table-secondary">
                         <tr>
                             <td colspan="5" class="text-end"><strong>Total:</strong></td>
-                            <td><strong>@Model.Sum(c => c.TotalAmount).ToString("C")</strong></td>
+                            <td><strong>@claims.Sum(c => c.TotalAmount).ToString("C")</strong></td>
                             <td colspan="2"></td>
                         </tr>
                     </tfoot>
@@ -140,15 +142,23 @@ else
     <script>
         function generatePDF() {
             alert('PDF generation would be implemented here. In a real application, this would generate a PDF download.');
-            // In a real application, you would call an API endpoint to generate PDF
-            // window.open('@Url.Action("GeneratePdf", "HR")', '_blank');
         }
 
         function exportToExcel() {
             alert('Excel export would be implemented here. In a real application, this would export to Excel.');
-            // In a real application, you would call an API endpoint to export Excel
-            // window.open('@Url.Action("ExportExcel", "HR")', '_blank');
         }
+
+        // Set filter values from query string
+        $(document).ready(function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const month = urlParams.get('month');
+            const year = urlParams.get('year');
+            const status = urlParams.get('status');
+
+            if (month) $('#month').val(month);
+            if (year) $('#year').val(year);
+            if (status) $('#status').val(status);
+        });
     </script>
 }
 

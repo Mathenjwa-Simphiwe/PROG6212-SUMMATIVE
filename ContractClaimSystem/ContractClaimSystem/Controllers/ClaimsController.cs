@@ -41,39 +41,52 @@ namespace ContractClaimSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> SubmitClaim(Claim claim, IFormFile supportingDocument)
         {
-            // Server-side validation
-            if (claim.HoursWorked > 180)
+            try
             {
-                ModelState.AddModelError("HoursWorked", "Hours worked cannot exceed 180 hours per month.");
-            }
-
-            if (claim.HoursWorked <= 0)
-            {
-                ModelState.AddModelError("HoursWorked", "Hours worked must be greater than 0.");
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
+                // Server-side validation
+                if (claim.HoursWorked > 180)
                 {
-                    var lecturer = _context.Users.Find(_sessionService.GetUserId());
+                    ModelState.AddModelError("HoursWorked", "Hours worked cannot exceed 180 hours per month.");
+                }
 
-                    claim.LecturerId = _sessionService.GetUserId();
-                    claim.HourlyRate = lecturer.HourlyRate;
-                    claim.TotalAmount = claim.HoursWorked * claim.HourlyRate;
-                    claim.Status = "Pending";
-                    claim.SubmittedDate = DateTime.Now;
+                if (claim.HoursWorked <= 0)
+                {
+                    ModelState.AddModelError("HoursWorked", "Hours worked must be greater than 0.");
+                }
+
+                if (ModelState.IsValid)
+                {
+                    var lecturer = await _context.Users.FindAsync(_sessionService.GetUserId());
+                    if (lecturer == null)
+                    {
+                        TempData["ErrorMessage"] = "Lecturer not found.";
+                        return RedirectToAction("SubmitClaim");
+                    }
+
+                    // Create new claim object to avoid model binding issues
+                    var newClaim = new Claim
+                    {
+                        LecturerId = _sessionService.GetUserId(),
+                        Month = claim.Month,
+                        Year = claim.Year,
+                        HoursWorked = claim.HoursWorked,
+                        HourlyRate = lecturer.HourlyRate,
+                        TotalAmount = claim.HoursWorked * lecturer.HourlyRate,
+                        Notes = claim.Notes,
+                        Status = "Pending",
+                        SubmittedDate = DateTime.Now
+                    };
 
                     // Handle file upload
                     if (supportingDocument != null && supportingDocument.Length > 0)
                     {
-                        await HandleFileUpload(claim, supportingDocument);
+                        await HandleFileUpload(newClaim, supportingDocument);
                     }
 
-                    _context.Claims.Add(claim);
+                    _context.Claims.Add(newClaim);
 
                     // Add initial status history
-                    claim.StatusHistory.Add(new ClaimStatusHistory
+                    newClaim.StatusHistory.Add(new ClaimStatusHistory
                     {
                         Status = "Pending",
                         ActionBy = _sessionService.GetUserName(),
@@ -86,17 +99,24 @@ namespace ContractClaimSystem.Controllers
                     TempData["SuccessMessage"] = "Claim submitted successfully!";
                     return RedirectToAction("MyClaims");
                 }
-                catch (Exception ex)
-                {
-                    ModelState.AddModelError("", "An error occurred while submitting your claim. Please try again.");
-                    // Log the exception
-                }
-            }
 
-            var currentLecturer = _context.Users.Find(_sessionService.GetUserId());
-            ViewBag.HourlyRate = currentLecturer?.HourlyRate ?? 0;
-            ViewBag.MaxHours = 180;
-            return View(claim);
+                // If we get here, there were validation errors
+                var currentLecturer = await _context.Users.FindAsync(_sessionService.GetUserId());
+                ViewBag.HourlyRate = currentLecturer?.HourlyRate ?? 0;
+                ViewBag.MaxHours = 180;
+                return View(claim);
+            }
+            catch (Exception ex)
+            {
+                // Log the error
+                Console.WriteLine($"Error submitting claim: {ex.Message}");
+                TempData["ErrorMessage"] = "An error occurred while submitting your claim. Please try again.";
+
+                var currentLecturer = await _context.Users.FindAsync(_sessionService.GetUserId());
+                ViewBag.HourlyRate = currentLecturer?.HourlyRate ?? 0;
+                ViewBag.MaxHours = 180;
+                return View(claim);
+            }
         }
 
         private async Task HandleFileUpload(Claim claim, IFormFile file)
@@ -123,10 +143,11 @@ namespace ContractClaimSystem.Controllers
                 claim.FileContent = memoryStream.ToArray();
                 claim.ContentType = file.ContentType;
             }
+
         }
 
-        // Download supporting document
-        [AuthorizeRole("Lecturer", "Coordinator", "Manager", "HR")]
+            // Download supporting document
+            [AuthorizeRole("Lecturer", "Coordinator", "Manager", "HR")]
         public IActionResult DownloadDocument(int id)
         {
             var claim = _context.Claims.Find(id);

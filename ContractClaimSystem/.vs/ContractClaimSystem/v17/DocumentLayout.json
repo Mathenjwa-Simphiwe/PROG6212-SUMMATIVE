@@ -3,16 +3,48 @@
   "WorkspaceRootPath": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|c:\\users\\lab_services_student\\documents\\github\\prog6212-summative\\contractclaimsystem\\contractclaimsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|solutionrelative:contractclaimsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|c:\\users\\lab_services_student\\documents\\github\\prog6212-summative\\contractclaimsystem\\contractclaimsystem\\data\\applicationdbcontextinmemory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|solutionrelative:contractclaimsystem\\data\\applicationdbcontextinmemory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|c:\\users\\lab_services_student\\documents\\github\\prog6212-summative\\contractclaimsystem\\contractclaimsystem\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|solutionrelative:contractclaimsystem\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|c:\\users\\lab_services_student\\documents\\github\\prog6212-summative\\contractclaimsystem\\contractclaimsystem\\services\\sessionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|solutionrelative:contractclaimsystem\\services\\sessionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|c:\\users\\lab_services_student\\documents\\github\\prog6212-summative\\contractclaimsystem\\contractclaimsystem\\views\\hr\\edituser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|solutionrelative:contractclaimsystem\\views\\hr\\edituser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|c:\\users\\lab_services_student\\documents\\github\\prog6212-summative\\contractclaimsystem\\contractclaimsystem\\views\\hr\\createuser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|solutionrelative:contractclaimsystem\\views\\hr\\createuser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|c:\\users\\lab_services_student\\documents\\github\\prog6212-summative\\contractclaimsystem\\contractclaimsystem\\views\\hr\\generatereport.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|solutionrelative:contractclaimsystem\\views\\hr\\generatereport.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|c:\\users\\lab_services_student\\documents\\github\\prog6212-summative\\contractclaimsystem\\contractclaimsystem\\controllers\\claimscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|solutionrelative:contractclaimsystem\\controllers\\claimscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|c:\\users\\lab_services_student\\documents\\github\\prog6212-summative\\contractclaimsystem\\contractclaimsystem\\controllers\\hrcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|solutionrelative:contractclaimsystem\\controllers\\hrcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|c:\\users\\lab_services_student\\documents\\github\\prog6212-summative\\contractclaimsystem\\contractclaimsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|solutionrelative:contractclaimsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|c:\\users\\lab_services_student\\documents\\github\\prog6212-summative\\contractclaimsystem\\contractclaimsystem\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|solutionrelative:contractclaimsystem\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|c:\\users\\lab_services_student\\documents\\github\\prog6212-summative\\contractclaimsystem\\contractclaimsystem\\views\\hr\\generatereport.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|solutionrelative:contractclaimsystem\\views\\hr\\generatereport.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|c:\\users\\lab_services_student\\documents\\github\\prog6212-summative\\contractclaimsystem\\contractclaimsystem\\views\\claims\\managerapproval.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -35,10 +67,6 @@
       "RelativeMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|solutionrelative:contractclaimsystem\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|c:\\users\\lab_services_student\\documents\\github\\prog6212-summative\\contractclaimsystem\\contractclaimsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|solutionrelative:contractclaimsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|c:\\users\\lab_services_student\\documents\\github\\prog6212-summative\\contractclaimsystem\\contractclaimsystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|solutionrelative:contractclaimsystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
@@ -49,10 +77,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|c:\\users\\lab_services_student\\documents\\github\\prog6212-summative\\contractclaimsystem\\contractclaimsystem\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|solutionrelative:contractclaimsystem\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|c:\\users\\lab_services_student\\documents\\github\\prog6212-summative\\contractclaimsystem\\contractclaimsystem\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|solutionrelative:contractclaimsystem\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|c:\\users\\lab_services_student\\documents\\github\\prog6212-summative\\contractclaimsystem\\contractclaimsystem\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -69,18 +93,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|c:\\users\\lab_services_student\\documents\\github\\prog6212-summative\\contractclaimsystem\\contractclaimsystem\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|solutionrelative:contractclaimsystem\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|c:\\users\\lab_services_student\\documents\\github\\prog6212-summative\\contractclaimsystem\\contractclaimsystem\\controllers\\hrcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|solutionrelative:contractclaimsystem\\controllers\\hrcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|c:\\users\\lab_services_student\\documents\\github\\prog6212-summative\\contractclaimsystem\\contractclaimsystem\\controllers\\claimscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|solutionrelative:contractclaimsystem\\controllers\\claimscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|c:\\users\\lab_services_student\\documents\\github\\prog6212-summative\\contractclaimsystem\\contractclaimsystem\\services\\sessionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|solutionrelative:contractclaimsystem\\services\\sessionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AB461403-6363-4218-B864-5825B28C6AD4}|ContractClaimSystem\\ContractClaimSystem.csproj|c:\\users\\lab_services_student\\documents\\github\\prog6212-summative\\contractclaimsystem\\contractclaimsystem\\contractclaimsystem.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
@@ -110,63 +122,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "site.css",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\wwwroot\\css\\site.css",
-              "RelativeDocumentMoniker": "ContractClaimSystem\\wwwroot\\css\\site.css",
-              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\wwwroot\\css\\site.css",
-              "RelativeToolTip": "ContractClaimSystem\\wwwroot\\css\\site.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAO8BAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-11-20T20:53:53.587Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ManagerApproval.cshtml",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Views\\Claims\\ManagerApproval.cshtml",
-              "RelativeDocumentMoniker": "ContractClaimSystem\\Views\\Claims\\ManagerApproval.cshtml",
-              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Views\\Claims\\ManagerApproval.cshtml",
-              "RelativeToolTip": "ContractClaimSystem\\Views\\Claims\\ManagerApproval.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAL0AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-20T20:45:54.056Z",
+              "Title": "ApplicationDbContextInMemory.cs",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Data\\ApplicationDbContextInMemory.cs",
+              "RelativeDocumentMoniker": "ContractClaimSystem\\Data\\ApplicationDbContextInMemory.cs",
+              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Data\\ApplicationDbContextInMemory.cs",
+              "RelativeToolTip": "ContractClaimSystem\\Data\\ApplicationDbContextInMemory.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAmwFAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T13:07:33.544Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "PendingClaims.cshtml",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Views\\Claims\\PendingClaims.cshtml",
-              "RelativeDocumentMoniker": "ContractClaimSystem\\Views\\Claims\\PendingClaims.cshtml",
-              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Views\\Claims\\PendingClaims.cshtml",
-              "RelativeToolTip": "ContractClaimSystem\\Views\\Claims\\PendingClaims.cshtml",
-              "ViewState": "AgIAAGkAAAAAAAAAAAAAAIoAAAAGAAAAAAAAAA==",
+              "Title": "EditUser.cshtml",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Views\\HR\\EditUser.cshtml",
+              "RelativeDocumentMoniker": "ContractClaimSystem\\Views\\HR\\EditUser.cshtml",
+              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Views\\HR\\EditUser.cshtml",
+              "RelativeToolTip": "ContractClaimSystem\\Views\\HR\\EditUser.cshtml",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAANwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-20T20:45:05.27Z",
+              "WhenOpened": "2025-11-21T12:51:34.085Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "GenerateReport.cshtml",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Views\\HR\\GenerateReport.cshtml",
-              "RelativeDocumentMoniker": "ContractClaimSystem\\Views\\HR\\GenerateReport.cshtml",
-              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Views\\HR\\GenerateReport.cshtml",
-              "RelativeToolTip": "ContractClaimSystem\\Views\\HR\\GenerateReport.cshtml",
-              "ViewState": "AgIAADQAAAAAAAAAAAAmwE0AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-20T20:44:14.634Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 13,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Views\\HR\\Index.cshtml",
               "RelativeDocumentMoniker": "ContractClaimSystem\\Views\\HR\\Index.cshtml",
@@ -174,12 +160,11 @@
               "RelativeToolTip": "ContractClaimSystem\\Views\\HR\\Index.cshtml",
               "ViewState": "AgIAAFAAAAAADfbQ2zcswFkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-20T20:43:05.82Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-20T20:43:05.82Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 14,
               "Title": "Dashboard.cshtml",
               "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Views\\Home\\Dashboard.cshtml",
               "RelativeDocumentMoniker": "ContractClaimSystem\\Views\\Home\\Dashboard.cshtml",
@@ -187,12 +172,11 @@
               "RelativeToolTip": "ContractClaimSystem\\Views\\Home\\Dashboard.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAFwAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-20T20:26:56.807Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-20T20:26:56.807Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 9,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "ContractClaimSystem\\Views\\Shared\\_Layout.cshtml",
@@ -205,7 +189,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 22,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Models\\User.cs",
               "RelativeDocumentMoniker": "ContractClaimSystem\\Models\\User.cs",
@@ -213,12 +197,11 @@
               "RelativeToolTip": "ContractClaimSystem\\Models\\User.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAQwB4AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-20T18:44:08.972Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-20T18:44:08.972Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 20,
               "Title": "ClaimStatusHistory.cs",
               "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Models\\ClaimStatusHistory.cs",
               "RelativeDocumentMoniker": "ContractClaimSystem\\Models\\ClaimStatusHistory.cs",
@@ -226,12 +209,11 @@
               "RelativeToolTip": "ContractClaimSystem\\Models\\ClaimStatusHistory.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-20T19:12:28.075Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-20T19:12:28.075Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 19,
               "Title": "LoginViewModel.cs",
               "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Models\\LoginViewModel.cs",
               "RelativeDocumentMoniker": "ContractClaimSystem\\Models\\LoginViewModel.cs",
@@ -239,25 +221,138 @@
               "RelativeToolTip": "ContractClaimSystem\\Models\\LoginViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-20T18:46:18.087Z",
+              "WhenOpened": "2025-11-20T18:46:18.087Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Program.cs",
+              "RelativeDocumentMoniker": "ContractClaimSystem\\Program.cs",
+              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Program.cs",
+              "RelativeToolTip": "ContractClaimSystem\\Program.cs",
+              "ViewState": "AgIAAE8AAAAAAAAAAAAgwDQAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T19:08:45.358Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 2,
               "Title": "ApplicationDbContext.cs",
               "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Data\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "ContractClaimSystem\\Data\\ApplicationDbContext.cs",
               "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Data\\ApplicationDbContext.cs",
               "RelativeToolTip": "ContractClaimSystem\\Data\\ApplicationDbContext.cs",
-              "ViewState": "AgIAAE0AAABAroFxFFsnwG8AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAuwHAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-20T18:47:38.824Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SessionService.cs",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Services\\SessionService.cs",
+              "RelativeDocumentMoniker": "ContractClaimSystem\\Services\\SessionService.cs",
+              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Services\\SessionService.cs",
+              "RelativeToolTip": "ContractClaimSystem\\Services\\SessionService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T18:49:02.215Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "GenerateReport.cshtml",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Views\\HR\\GenerateReport.cshtml",
+              "RelativeDocumentMoniker": "ContractClaimSystem\\Views\\HR\\GenerateReport.cshtml",
+              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Views\\HR\\GenerateReport.cshtml",
+              "RelativeToolTip": "ContractClaimSystem\\Views\\HR\\GenerateReport.cshtml",
+              "ViewState": "AgIAAJkAAAAAAAAAAAAwwLwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-20T20:44:14.634Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "PendingClaims.cshtml",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Views\\Claims\\PendingClaims.cshtml",
+              "RelativeDocumentMoniker": "ContractClaimSystem\\Views\\Claims\\PendingClaims.cshtml",
+              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Views\\Claims\\PendingClaims.cshtml",
+              "RelativeToolTip": "ContractClaimSystem\\Views\\Claims\\PendingClaims.cshtml",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAAAIoAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-20T20:45:05.27Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CreateUser.cshtml",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Views\\HR\\CreateUser.cshtml",
+              "RelativeDocumentMoniker": "ContractClaimSystem\\Views\\HR\\CreateUser.cshtml",
+              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Views\\HR\\CreateUser.cshtml",
+              "RelativeToolTip": "ContractClaimSystem\\Views\\HR\\CreateUser.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-21T12:51:05.592Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "HRController.cs",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Controllers\\HRController.cs",
+              "RelativeDocumentMoniker": "ContractClaimSystem\\Controllers\\HRController.cs",
+              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Controllers\\HRController.cs",
+              "RelativeToolTip": "ContractClaimSystem\\Controllers\\HRController.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAmwGIAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T18:57:48.34Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ClaimsController.cs",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Controllers\\ClaimsController.cs",
+              "RelativeDocumentMoniker": "ContractClaimSystem\\Controllers\\ClaimsController.cs",
+              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Controllers\\ClaimsController.cs",
+              "RelativeToolTip": "ContractClaimSystem\\Controllers\\ClaimsController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAJIAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T18:58:40.902Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 11,
+              "Title": "ManagerApproval.cshtml",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Views\\Claims\\ManagerApproval.cshtml",
+              "RelativeDocumentMoniker": "ContractClaimSystem\\Views\\Claims\\ManagerApproval.cshtml",
+              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Views\\Claims\\ManagerApproval.cshtml",
+              "RelativeToolTip": "ContractClaimSystem\\Views\\Claims\\ManagerApproval.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAL0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-20T20:45:54.056Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "ContractClaimSystem\\wwwroot\\css\\site.css",
+              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "ContractClaimSystem\\wwwroot\\css\\site.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAO8BAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-11-20T20:53:53.587Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
               "Title": "Login.cshtml",
               "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Views\\Account\\Login.cshtml",
               "RelativeDocumentMoniker": "ContractClaimSystem\\Views\\Account\\Login.cshtml",
@@ -265,12 +360,11 @@
               "RelativeToolTip": "ContractClaimSystem\\Views\\Account\\Login.cshtml",
               "ViewState": "AgIAAAoAAAAAAAAAAIAwwCkAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-20T19:43:16.231Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-20T19:43:16.231Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 16,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\appsettings.json",
               "RelativeDocumentMoniker": "ContractClaimSystem\\appsettings.json",
@@ -278,25 +372,11 @@
               "RelativeToolTip": "ContractClaimSystem\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-11-20T19:19:30.078Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-20T19:19:30.078Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Program.cs",
-              "RelativeDocumentMoniker": "ContractClaimSystem\\Program.cs",
-              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Program.cs",
-              "RelativeToolTip": "ContractClaimSystem\\Program.cs",
-              "ViewState": "AgIAAGIAAAAAAAAAAADwv4QAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-20T19:08:45.358Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 15,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "ContractClaimSystem\\Controllers\\HomeController.cs",
@@ -304,25 +384,11 @@
               "RelativeToolTip": "ContractClaimSystem\\Controllers\\HomeController.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAwwCAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-20T18:57:05.717Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-20T18:57:05.717Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 17,
-              "Title": "HRController.cs",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Controllers\\HRController.cs",
-              "RelativeDocumentMoniker": "ContractClaimSystem\\Controllers\\HRController.cs",
-              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Controllers\\HRController.cs",
-              "RelativeToolTip": "ContractClaimSystem\\Controllers\\HRController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-20T18:57:48.34Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
               "Title": "AccountController.cs",
               "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "ContractClaimSystem\\Controllers\\AccountController.cs",
@@ -330,25 +396,11 @@
               "RelativeToolTip": "ContractClaimSystem\\Controllers\\AccountController.cs",
               "ViewState": "AgIAABUAAAAAAAAAAAAowB0AAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-20T18:56:34.838Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-20T18:56:34.838Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "SessionService.cs",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Services\\SessionService.cs",
-              "RelativeDocumentMoniker": "ContractClaimSystem\\Services\\SessionService.cs",
-              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Services\\SessionService.cs",
-              "RelativeToolTip": "ContractClaimSystem\\Services\\SessionService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-20T18:49:02.215Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 21,
               "Title": "Claim.cs",
               "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Models\\Claim.cs",
               "RelativeDocumentMoniker": "ContractClaimSystem\\Models\\Claim.cs",
@@ -356,12 +408,11 @@
               "RelativeToolTip": "ContractClaimSystem\\Models\\Claim.cs",
               "ViewState": "AgIAACIAAAAAAAAAAAAAADUAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-20T18:45:36.236Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-20T18:45:36.236Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 23,
               "Title": "ContractClaimSystem.csproj",
               "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\ContractClaimSystem.csproj",
               "RelativeDocumentMoniker": "ContractClaimSystem\\ContractClaimSystem.csproj",
@@ -369,25 +420,11 @@
               "RelativeToolTip": "ContractClaimSystem\\ContractClaimSystem.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-11-20T18:47:12.787Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-20T18:47:12.787Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "ClaimsController.cs",
-              "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Controllers\\ClaimsController.cs",
-              "RelativeDocumentMoniker": "ContractClaimSystem\\Controllers\\ClaimsController.cs",
-              "ToolTip": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Controllers\\ClaimsController.cs",
-              "RelativeToolTip": "ContractClaimSystem\\Controllers\\ClaimsController.cs",
-              "ViewState": "AgIAAJAAAAAAAAAAAAASwMUAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-20T18:58:40.902Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 26,
               "Title": "SubmitClaim.cshtml",
               "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Views\\Claims\\SubmitClaim.cshtml",
               "RelativeDocumentMoniker": "ContractClaimSystem\\Views\\Claims\\SubmitClaim.cshtml",
@@ -399,7 +436,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 25,
               "Title": "MyClaims.cshtml",
               "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Views\\Claims\\MyClaims.cshtml",
               "RelativeDocumentMoniker": "ContractClaimSystem\\Views\\Claims\\MyClaims.cshtml",
@@ -411,7 +448,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 24,
               "Title": "ClaimDetails.cshtml",
               "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Views\\Claims\\ClaimDetails.cshtml",
               "RelativeDocumentMoniker": "ContractClaimSystem\\Views\\Claims\\ClaimDetails.cshtml",
@@ -423,7 +460,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 27,
               "Title": "AuthorizeRoleAttribute.cs",
               "DocumentMoniker": "C:\\Users\\lab_services_student\\Documents\\GitHub\\PROG6212-SUMMATIVE\\ContractClaimSystem\\ContractClaimSystem\\Filters\\AuthorizeRoleAttribute.cs",
               "RelativeDocumentMoniker": "ContractClaimSystem\\Filters\\AuthorizeRoleAttribute.cs",
